@@ -7,11 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Kelly+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+      :root {
+        --background-color: #f0e33f;
+        --text-color:	#e63a3a;
+        --link-color: #b47a3d;
+        --icon-color: #7eb5e8;
+      }
 
       .title {
         font-family: "Jacquard 12", system-ui;
         font-weight: 400; 
-        color: #7077A1;
+        color: var(--text-color);
         font-size: calc(64px + 4vw);
         white-space:nowrap; 
         max-width: fit-content;
@@ -26,7 +32,7 @@
         font-weight: 400;
         font-size: 24px;
         white-space:nowrap;
-        color: #7077A1;
+        color: var(--link-color);
         max-width: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -47,7 +53,7 @@
         margin-left: auto;
         margin-right: auto;
         transform: translate(-50%, -50%);
-        background-color: #2D3250;
+        background-color: var(--background-color);
       }
 
       .fa {
@@ -64,7 +70,7 @@
       }
 
       .fa-github {
-        color: #F6B17A;
+        color: var(--icon-color);
       }
     </style>
   </head>
