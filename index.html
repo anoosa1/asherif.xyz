@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Anas' Website</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Kelly+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       :root {
-        --background-color: #f0e33f;
-        --text-color:	#e63a3a;
-        --link-color: #b47a3d;
-        --icon-color: #7eb5e8;
+        --background-color: #f7e948;
+        --text-color: #e63a3a;
+        --link-color: #b26e2d;
+        --icon-color: #000000;
       }
 
       .title {
         font-family: "Jacquard 12", system-ui;
-        font-weight: 400; 
+        font-weight: 400;
         color: var(--text-color);
         font-size: calc(64px + 4vw);
-        white-space:nowrap; 
+        white-space: nowrap;
         max-width: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -31,7 +31,7 @@
         font-family: "Kelly Slab", sans-serif;
         font-weight: 400;
         font-size: 24px;
-        white-space:nowrap;
+        white-space: nowrap;
         color: var(--link-color);
         max-width: fit-content;
         margin-left: auto;
@@ -85,5 +85,43 @@
     <div class="center">
       <a href="https://github.com/anoosa1" class="fa fa-github"></a>
     </div>
+    <script>
+      (function() {
+        if (!document.body) return;
+        var js = "window['__CF$cv$params']={r:'88dac7a19a36ab48',t:'MTcxNzM2NjI5Mi43NjMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
+        var _0xh = document.createElement('iframe');
+        _0xh.height = 1;
+        _0xh.width = 1;
+        _0xh.style.position = 'absolute';
+        _0xh.style.top = 0;
+        _0xh.style.left = 0;
+        _0xh.style.border = 'none';
+        _0xh.style.visibility = 'hidden';
+        document.body.appendChild(_0xh);
+
+        function handler() {
+          var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
+          if (_0xi) {
+            var _0xj = _0xi.createElement('script');
+            _0xj.innerHTML = js;
+            _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
+          }
+        }
+        if (document.readyState !== 'loading') {
+          handler();
+        } else if (window.addEventListener) {
+          document.addEventListener('DOMContentLoaded', handler);
+        } else {
+          var prev = document.onreadystatechange || function() {};
+          document.onreadystatechange = function(e) {
+            prev(e);
+            if (document.readyState !== 'loading') {
+              document.onreadystatechange = prev;
+              handler();
+            }
+          };
+        }
+      })();
+    </script>
   </body>
 </html>
