@@ -1,127 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Anas' Website</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">  
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Kelly+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      :root {
-        --background-color: #f7e948;
-        --text-color: #e63a3a;
-        --link-color: #b26e2d;
-        --icon-color: #000000;
-      }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asherif.xyz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      .title {
-        font-family: "Jacquard 12", system-ui;
-        font-weight: 400;
-        color: var(--text-color);
-        font-size: calc(64px + 4vw);
-        white-space: nowrap;
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        font-style: normal;
-        text-align: center;
-      }
+    <div class="container">
+        <header>
+            <img src="photo.jpg" alt="Anas Sherif" class="profile-photo">
+            
+            <div class="header-info">
+                <h1>Anas Sherif</h1>
+                <p>Computer Science Student @ Wilfrid Laurier University</p>
+                <div class="contact-links">
+                    <a href="mailto:anas_sherif1@outlook.com">Email</a>
+                    <a href="https://github.com/anoosa1">GitHub</a>
+                    <a href="https://www.linkedin.com/in/anas-sherif-5b73402a4/">LinkedIn</a>
+                </div>
+            </div>
+        </header>
 
-      .sub-title {
-        font-family: "Kelly Slab", sans-serif;
-        font-weight: 400;
-        font-size: 24px;
-        white-space: nowrap;
-        color: var(--link-color);
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        font-style: normal;
-        text-align: center;
-      }
+        <section>
+            <h2>About Me</h2>
+            <p>
+                I am a Computer Science student with a passion for software development and automation. 
+                I have experience building applications in Python and Java, and I liked working with Nix and Linux.
+            </p>
+        </section>
 
-      .center {
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-      }
+        <section>
+            <h2>Interests</h2>
+            <ul class="skills-list">
+                <li>Nix/Linux</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript (TS)</li>
+                <li>C#</li>
+            </ul>
+        </section>
 
-      .middle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        transform: translate(-50%, -50%);
-        background-color: var(--background-color);
-      }
+        <section>
+            <h2>Check out</h2>
+            
+            <div class="project-item">
+                <h3>
+                    <a href="https://github.com/anoosa1/asherif.xyz">Source code of this website</a>
+                </h3>
+                <p>The code repository for this site.</p>
+            </div>
 
-      .fa {
-        font-size: 30px;
-        width: 30px;
-        text-align: center;
-        text-decoration: none;
-        margin: 5px 2px;
-        border-radius: 50%;
-      }
+            <div class="project-item">
+                <h3>
+                    <a href="https://github.com/anoosa1/nix-configs" target="_blank">My nix-configs</a>
+                </h3>
+                <p>Modular nix flake for my server, desktop, and laptop.</p>
+            </div>
+        </section>
 
-      .fa:hover {
-        opacity: 0.7;
-      }
-
-      .fa-github {
-        color: var(--icon-color);
-      }
-    </style>
-  </head>
-  <body class="middle">
-    <div class="center">
-      <a class="title">Anas Sherif</a>
+        <footer>
+            <p>&copy; 2025 Anas Sherif</p>
+        </footer>
     </div>
-    <div class="center">
-      <a class="sub-title" href="https://asherif.xyz">https://asherif.xyz</a>
-    </div>
-    <br>
-    <div class="center">
-      <a href="https://github.com/anoosa1" class="fa fa-github"></a>
-    </div>
-    <script>
-      (function() {
-        if (!document.body) return;
-        var js = "window['__CF$cv$params']={r:'88dac7a19a36ab48',t:'MTcxNzM2NjI5Mi43NjMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
-        var _0xh = document.createElement('iframe');
-        _0xh.height = 1;
-        _0xh.width = 1;
-        _0xh.style.position = 'absolute';
-        _0xh.style.top = 0;
-        _0xh.style.left = 0;
-        _0xh.style.border = 'none';
-        _0xh.style.visibility = 'hidden';
-        document.body.appendChild(_0xh);
 
-        function handler() {
-          var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
-          if (_0xi) {
-            var _0xj = _0xi.createElement('script');
-            _0xj.innerHTML = js;
-            _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
-          }
-        }
-        if (document.readyState !== 'loading') {
-          handler();
-        } else if (window.addEventListener) {
-          document.addEventListener('DOMContentLoaded', handler);
-        } else {
-          var prev = document.onreadystatechange || function() {};
-          document.onreadystatechange = function(e) {
-            prev(e);
-            if (document.readyState !== 'loading') {
-              document.onreadystatechange = prev;
-              handler();
-            }
-          };
-        }
-      })();
-    </script>
-  </body>
+</body>
 </html>
