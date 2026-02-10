@@ -387,6 +387,8 @@ body.theme-catppuccin .prompt-user {
 
 .terminal-output {
     opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
 .terminal-output.visible {
