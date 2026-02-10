@@ -1,120 +1,394 @@
+:root {
+    /* Gruvbox (Default) */
+    --bg-color: #1d2021;
+    --fg-color: #ebdbb2;
+    --accent-color: #fabd2f;
+    --link-color: #fabd2f;
+    --link-hover-color: #fe8019;
+    --border-color: #3c3836;
+}
+
+/* Nord Theme */
+body.theme-nord {
+    --bg-color: #2e3440;
+    --fg-color: #d8dee9;
+    --accent-color: #88c0d0;
+    --link-color: #88c0d0;
+    --link-hover-color: #81a1c1;
+    --border-color: #4c566a;
+}
+
+/* Base16 Eighties Theme */
+body.theme-base16-eighties {
+    --bg-color: #2d2d2d;
+    --fg-color: #d3d0c8;
+    --accent-color: #ffcc66;
+    /* Yellow-ish */
+    --link-color: #6699cc;
+    /* Blue */
+    --link-hover-color: #f2777a;
+    /* Red */
+    --border-color: #515151;
+}
+
+/* Gruvbox Light Theme */
+body.theme-gruvbox-light {
+    --bg-color: #fbf1c7;
+    --fg-color: #3c3836;
+    --accent-color: #d79921;
+    --link-color: #d79921;
+    --link-hover-color: #af3a03;
+    --border-color: #ebdbb2;
+}
+
+/* Nord Light Theme */
+body.theme-nord-light {
+    --bg-color: #eceff4;
+    --fg-color: #2e3440;
+    --accent-color: #5e81ac;
+    /* Nord10 */
+    --link-color: #5e81ac;
+    --link-hover-color: #81a1c1;
+    /* Nord8 */
+    --border-color: #d8dee9;
+}
+
+/* OneDark Theme */
+body.theme-onedark {
+    --bg-color: #282c34;
+    --fg-color: #abb2bf;
+    --accent-color: #61afef;
+    /* Blue */
+    --link-color: #61afef;
+    --link-hover-color: #98c379;
+    /* Green */
+    --border-color: #4b5263;
+}
+
+/* Base16 Atelier Theme (Atelier Dune Light as reference or similar) - interpreting as Atelier Dune Dark/Light? 
+   User asked for "base16-atelier". I'll use Atelier Dune Dark as it's common, or make a best guess.
+   Actually user said "base16-atelier", let's assume Atelier Dune Dark for consistency or picking a popular one.
+   Let's go with Atelier Sulphurpool Dark from base16 as a distinct look.
+   Wait, user might want a specific atelier. I'll pick Atelier Dune Dark.
+   Ref: https://github.com/chriskempson/base16-atelier-scheme
+*/
+body.theme-base16-atelier {
+    --bg-color: #20201d;
+    --fg-color: #a6a28c;
+    --accent-color: #666633;
+    --link-color: #ac9739;
+    --link-hover-color: #d2943d;
+    --border-color: #5c5a53;
+}
+
+/* Catppuccin Theme (Mocha) */
+body.theme-catppuccin {
+    --bg-color: #1e1e2e;
+    --fg-color: #cdd6f4;
+    --accent-color: #f5c2e7;
+    /* Pink */
+    --link-color: #89b4fa;
+    /* Blue */
+    --link-hover-color: #fab387;
+    /* Peach */
+    --border-color: #45475a;
+}
+
 body {
-    line-height: 1.6;
-    color: #e0e0e0;
-    background-color: #121212;
-}
-
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #1e1e1e;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-header {
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.5;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    border-bottom: 2px solid #333;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #333; 
-    object-fit: cover;
-    margin-right: 30px;
-    border: 4px solid #1e1e1e;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+.layout-container {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    padding: 2em 0;
+    box-sizing: border-box;
 }
 
-.header-info h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
+/* Left Sidebar */
+.left-sidebar {
+    text-align: left;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
-.header-info p {
-    font-size: 1.1rem;
-    color: #b0b0b0;
+.left-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-.contact-links a {
-    color: #64b5f6;
+.left-sidebar nav a {
     text-decoration: none;
-    margin-right: 15px;
+    padding: 0;
+    display: inline;
+}
+
+.left-sidebar nav a.nav-highlighted {
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+.left-sidebar nav a:hover {
+    text-decoration: none;
+}
+
+/* Sidebar nav prompt */
+.sidebar-nav-prompt {
+    font-family: monospace;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--fg-color);
+    text-align: left;
+}
+
+
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    text-align: left;
+    padding: 0;
+}
+
+.theme-btn:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+/* Shared Styles */
+h1,
+h2,
+h3 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: var(--accent-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 2em 0;
+}
+
+.sidebar-separator {
+    width: 100%;
+    border: 0;
+    border-top: none;
+    margin: 1em 0;
+    opacity: 0;
+}
+
+/* Footer Buttons */
+.footer-buttons {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.footer-buttons a {
+    display: inline-block;
+}
+
+.footer-buttons img {
+    height: 31px;
+    image-rendering: pixelated;
+}
+
+/* Toggle options (cat/snow) styled like theme buttons */
+.toggle-option {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    text-align: left;
+    padding: 0;
+    opacity: 0.5;
+}
+
+.toggle-option.enabled {
+    opacity: 1;
+}
+
+.toggle-option:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Header/Footer specific overrides if needed */
+header,
+footer {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/* Specific nav (socials) in header */
+header nav a {
     font-weight: bold;
 }
 
-.contact-links a:hover {
-    text-decoration: underline;
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-h2 {
-    color: #ffffff;
-    border-left: 5px solid #64b5f6;
-    padding-left: 10px;
-    margin-bottom: 15px;
-}
-
-.skills-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skills-list li {
-    background: #333;
-    color: #90caf9;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    border: 1px solid #444;
-}
-
-.project-item {
-    margin-bottom: 20px;
-    background-color: #252525;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.project-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.project-item a {
-    color: #64b5f6;
-    text-decoration: none;
-}
-
-.project-item a:hover {
-    text-decoration: underline;
-}
-
-footer {
+#header-art {
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
     text-align: center;
-    margin-top: 40px;
-    font-size: 0.8rem;
-    color: #777;
+    line-height: 1.2;
+    color: var(--accent-color);
+    margin: 0 auto;
+    font-weight: bold;
+    display: inline-block;
+    /* Helps in centering text-align parent */
 }
 
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+.header-container {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Terminal Animation Styles */
+.terminal-prompt {
+    font-family: monospace;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--fg-color);
+    text-align: left;
+}
+
+.prompt-user {
+    color: #b8bb26;
+    /* Green in Gruvbox */
+    margin-right: 0.5em;
+}
+
+/* Theme overrides for prompt user color if needed */
+body.theme-nord .prompt-user {
+    color: #a3be8c;
+    /* Nord Green */
+}
+
+body.theme-base16-eighties .prompt-user {
+    color: #99cc99;
+    /* Base16 Green */
+}
+
+body.theme-gruvbox-light .prompt-user {
+    color: #98971a;
+    /* Gruvbox Green */
+}
+
+body.theme-nord-light .prompt-user {
+    color: #a3be8c;
+    /* Nord Green */
+}
+
+body.theme-onedark .prompt-user {
+    color: #98c379;
+    /* OneDark Green */
+}
+
+body.theme-base16-atelier .prompt-user {
+    color: #858533;
+    /* Atelier Green */
+}
+
+body.theme-catppuccin .prompt-user {
+    color: #a6e3a1;
+    /* Catppuccin Green */
+}
+
+.prompt-command {
+    color: var(--fg-color);
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.2em;
+    background-color: var(--fg-color);
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
     }
-    .profile-photo {
-        margin-right: 0;
-        margin-bottom: 15px;
+
+    50% {
+        opacity: 0;
     }
+}
+
+.terminal-output {
+    opacity: 0;
+}
+
+.terminal-output.visible {
+    opacity: 1;
 }
