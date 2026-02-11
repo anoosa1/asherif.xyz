@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sidebarPrompt && sidebarNav) {
         const command = sidebarPrompt.getAttribute('data-command') || 'cd ~/';
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
         // Determine current page from URL
         const currentPath = window.location.pathname;
@@ -18,68 +19,72 @@ document.addEventListener('DOMContentLoaded', () => {
             promptPath = '~/links';
         }
 
-        const promptText = `asherif.xyz ${promptPath} > `;
+        const highlightCurrentPage = () => {
+            const navLinks = sidebarNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                if (link.dataset.page === currentPage) {
+                    link.classList.add('nav-highlighted');
+                }
+            });
 
-        // Clear and build prompt
-        sidebarPrompt.textContent = '';
-
-        const promptSpan = document.createElement('span');
-        promptSpan.className = 'prompt-user';
-        promptSpan.textContent = promptText;
-        sidebarPrompt.appendChild(promptSpan);
-
-        const commandSpan = document.createElement('span');
-        commandSpan.className = 'prompt-command';
-        sidebarPrompt.appendChild(commandSpan);
-
-        const cursor = document.createElement('span');
-        cursor.className = 'terminal-cursor';
-        cursor.textContent = '\u2588';
-        sidebarPrompt.appendChild(cursor);
-
-        // Initially hide nav
-        sidebarNav.style.display = 'none';
-
-        // Type the command, then show nav with current page highlighted
-        let i = 0;
-        const typeChar = () => {
-            if (i < command.length) {
-                commandSpan.textContent += command.charAt(i);
-                i++;
-                setTimeout(typeChar, Math.random() * 50 + 50);
-            } else {
-                // Done typing - show nav, highlight current page
-                sidebarNav.style.display = '';
-
-                // Highlight the current page link (tab-completion style)
-                const navLinks = sidebarNav.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    if (link.dataset.page === currentPage) {
-                        link.classList.add('nav-highlighted');
-                    }
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    navLinks.forEach(l => l.classList.remove('nav-highlighted'));
+                    link.classList.add('nav-highlighted');
                 });
 
-                // On hover, move the highlight to the hovered link
-                navLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        navLinks.forEach(l => l.classList.remove('nav-highlighted'));
-                        link.classList.add('nav-highlighted');
-                    });
-
-                    link.addEventListener('mouseleave', () => {
-                        // Restore highlight to current page
-                        navLinks.forEach(l => l.classList.remove('nav-highlighted'));
-                        navLinks.forEach(l => {
-                            if (l.dataset.page === currentPage) {
-                                l.classList.add('nav-highlighted');
-                            }
-                        });
+                link.addEventListener('mouseleave', () => {
+                    navLinks.forEach(l => l.classList.remove('nav-highlighted'));
+                    navLinks.forEach(l => {
+                        if (l.dataset.page === currentPage) {
+                            l.classList.add('nav-highlighted');
+                        }
                     });
                 });
-            }
+            });
         };
 
-        setTimeout(typeChar, Math.random() * 300 + 200);
+        if (isMobile) {
+            // On mobile, skip animation — show nav immediately
+            highlightCurrentPage();
+        } else {
+            const promptText = `asherif.xyz ${promptPath} > `;
+
+            // Clear and build prompt
+            sidebarPrompt.textContent = '';
+
+            const promptSpan = document.createElement('span');
+            promptSpan.className = 'prompt-user';
+            promptSpan.textContent = promptText;
+            sidebarPrompt.appendChild(promptSpan);
+
+            const commandSpan = document.createElement('span');
+            commandSpan.className = 'prompt-command';
+            sidebarPrompt.appendChild(commandSpan);
+
+            const cursor = document.createElement('span');
+            cursor.className = 'terminal-cursor';
+            cursor.textContent = '\u2588';
+            sidebarPrompt.appendChild(cursor);
+
+            // Initially hide nav
+            sidebarNav.style.display = 'none';
+
+            // Type the command, then show nav with current page highlighted
+            let i = 0;
+            const typeChar = () => {
+                if (i < command.length) {
+                    commandSpan.textContent += command.charAt(i);
+                    i++;
+                    setTimeout(typeChar, Math.random() * 50 + 50);
+                } else {
+                    sidebarNav.style.display = '';
+                    highlightCurrentPage();
+                }
+            };
+
+            setTimeout(typeChar, Math.random() * 300 + 200);
+        }
     }
 
     // === Main content terminal prompts (sequential execution) ===

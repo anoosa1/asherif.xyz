@@ -107,12 +107,10 @@ body {
 }
 
 .layout-container {
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    gap: 0;
+    display: block;
     width: 100%;
     margin: 0;
-    padding: 2em 0;
+    padding: 2em 0 2em 20%;
     box-sizing: border-box;
 }
 
@@ -125,7 +123,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: var(--bg-color);
 }
 
 .left-sidebar nav {
@@ -393,4 +400,83 @@ body.theme-catppuccin .prompt-user {
 
 .terminal-output.visible {
     opacity: 1;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+    .layout-container {
+        padding: 1em 0 1em 0;
+    }
+
+    /* Sidebar becomes a horizontal top bar */
+    .left-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.5em 1em;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
+        background-color: var(--bg-color);
+        z-index: 100;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    .main-content {
+        padding-top: 2.5em;
+    }
+
+    /* Hide the sidebar typing prompt on mobile */
+    .sidebar-nav-prompt {
+        display: none;
+    }
+
+    /* Nav links in a row */
+    .left-sidebar nav {
+        flex-direction: row;
+        gap: 1em;
+    }
+
+    /* Hide theme options and separator on mobile */
+    .theme-options,
+    .sidebar-separator {
+        display: none;
+    }
+
+    /* Main content spacing */
+    .main-content {
+        padding: 0 1em;
+    }
+
+    /* Scale down ASCII art */
+    #header-art {
+        font-size: 0.45em;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .header-container {
+        overflow-x: auto;
+    }
+
+    /* Allow terminal prompts to wrap */
+    .terminal-prompt {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Reduce header/footer margins */
+    header,
+    footer {
+        margin-bottom: 1em;
+    }
+
+    hr {
+        margin: 1em 0;
+    }
 }

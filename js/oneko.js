@@ -2,6 +2,7 @@
 
 (function oneko() {
     if (localStorage.getItem('catEnabled') === 'off') return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
 
     const isReducedMotion =
         window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
