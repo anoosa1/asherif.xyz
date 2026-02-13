@@ -402,6 +402,19 @@ body.theme-catppuccin .prompt-user {
     opacity: 1;
 }
 
+#clock {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-family: monospace;
+    font-size: 1em;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
     .layout-container {
@@ -429,6 +442,7 @@ body.theme-catppuccin .prompt-user {
 
     .main-content {
         padding-top: 2.5em;
+        /* Space for the top bar */
     }
 
     /* Hide the sidebar typing prompt on mobile */
@@ -478,5 +492,16 @@ body.theme-catppuccin .prompt-user {
 
     hr {
         margin: 1em 0;
+    }
+
+    #clock {
+        position: relative;
+        top: 0;
+        right: 0;
+        text-align: center;
+        margin-top: 1em;
+        border: none;
+        background: none;
+        padding: 0;
     }
 }
