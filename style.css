@@ -1,96 +1,10 @@
 :root {
-    /* Gruvbox (Default) */
-    --bg-color: #1d2021;
-    --fg-color: #ebdbb2;
-    --accent-color: #fabd2f;
-    --link-color: #fabd2f;
-    --link-hover-color: #fe8019;
-    --border-color: #3c3836;
-}
-
-/* Nord Theme */
-body.theme-nord {
-    --bg-color: #2e3440;
-    --fg-color: #d8dee9;
-    --accent-color: #88c0d0;
-    --link-color: #88c0d0;
-    --link-hover-color: #81a1c1;
-    --border-color: #4c566a;
-}
-
-/* Base16 Eighties Theme */
-body.theme-base16-eighties {
-    --bg-color: #2d2d2d;
-    --fg-color: #d3d0c8;
-    --accent-color: #ffcc66;
-    /* Yellow-ish */
-    --link-color: #6699cc;
-    /* Blue */
-    --link-hover-color: #f2777a;
-    /* Red */
-    --border-color: #515151;
-}
-
-/* Gruvbox Light Theme */
-body.theme-gruvbox-light {
-    --bg-color: #fbf1c7;
-    --fg-color: #3c3836;
-    --accent-color: #d79921;
-    --link-color: #d79921;
-    --link-hover-color: #af3a03;
-    --border-color: #ebdbb2;
-}
-
-/* Nord Light Theme */
-body.theme-nord-light {
-    --bg-color: #eceff4;
-    --fg-color: #2e3440;
-    --accent-color: #5e81ac;
-    /* Nord10 */
-    --link-color: #5e81ac;
-    --link-hover-color: #81a1c1;
-    /* Nord8 */
-    --border-color: #d8dee9;
-}
-
-/* OneDark Theme */
-body.theme-onedark {
-    --bg-color: #282c34;
-    --fg-color: #abb2bf;
-    --accent-color: #61afef;
-    /* Blue */
-    --link-color: #61afef;
-    --link-hover-color: #98c379;
-    /* Green */
-    --border-color: #4b5263;
-}
-
-/* Base16 Atelier Theme (Atelier Dune Light as reference or similar) - interpreting as Atelier Dune Dark/Light? 
-   User asked for "base16-atelier". I'll use Atelier Dune Dark as it's common, or make a best guess.
-   Actually user said "base16-atelier", let's assume Atelier Dune Dark for consistency or picking a popular one.
-   Let's go with Atelier Sulphurpool Dark from base16 as a distinct look.
-   Wait, user might want a specific atelier. I'll pick Atelier Dune Dark.
-   Ref: https://github.com/chriskempson/base16-atelier-scheme
-*/
-body.theme-base16-atelier {
-    --bg-color: #20201d;
-    --fg-color: #a6a28c;
-    --accent-color: #666633;
-    --link-color: #ac9739;
-    --link-hover-color: #d2943d;
-    --border-color: #5c5a53;
-}
-
-/* Catppuccin Theme (Mocha) */
-body.theme-catppuccin {
+    /* Catppuccin Mocha */
     --bg-color: #1e1e2e;
     --fg-color: #cdd6f4;
     --accent-color: #f5c2e7;
-    /* Pink */
     --link-color: #89b4fa;
-    /* Blue */
     --link-hover-color: #fab387;
-    /* Peach */
     --border-color: #45475a;
 }
 
@@ -169,26 +83,10 @@ body {
 }
 
 
-.theme-options {
+.sidebar-options {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-}
-
-.theme-btn {
-    background: none;
-    border: none;
-    color: var(--link-color);
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 1em;
-    text-align: left;
-    padding: 0;
-}
-
-.theme-btn:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
 }
 
 /* Main Content */
@@ -261,7 +159,7 @@ hr {
     image-rendering: pixelated;
 }
 
-/* Toggle options (cat/snow) styled like theme buttons */
+/* Cat toggle */
 .toggle-option {
     background: none;
     border: none;
@@ -325,45 +223,9 @@ header nav a {
 }
 
 .prompt-user {
-    color: #b8bb26;
-    /* Green in Gruvbox */
-    margin-right: 0.5em;
-}
-
-/* Theme overrides for prompt user color if needed */
-body.theme-nord .prompt-user {
-    color: #a3be8c;
-    /* Nord Green */
-}
-
-body.theme-base16-eighties .prompt-user {
-    color: #99cc99;
-    /* Base16 Green */
-}
-
-body.theme-gruvbox-light .prompt-user {
-    color: #98971a;
-    /* Gruvbox Green */
-}
-
-body.theme-nord-light .prompt-user {
-    color: #a3be8c;
-    /* Nord Green */
-}
-
-body.theme-onedark .prompt-user {
-    color: #98c379;
-    /* OneDark Green */
-}
-
-body.theme-base16-atelier .prompt-user {
-    color: #858533;
-    /* Atelier Green */
-}
-
-body.theme-catppuccin .prompt-user {
     color: #a6e3a1;
     /* Catppuccin Green */
+    margin-right: 0.5em;
 }
 
 .prompt-command {
@@ -456,8 +318,8 @@ body.theme-catppuccin .prompt-user {
         gap: 1em;
     }
 
-    /* Hide theme options and separator on mobile */
-    .theme-options,
+    /* Hide cat option and separator on mobile */
+    .sidebar-options,
     .sidebar-separator {
         display: none;
     }
